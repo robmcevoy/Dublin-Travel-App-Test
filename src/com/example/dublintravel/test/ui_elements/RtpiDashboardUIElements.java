@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class RtpiDashboardActivityTest extends ActivityInstrumentationTestCase2<RtpiDashboardActivity>{
+public class RtpiDashboardUIElements extends ActivityInstrumentationTestCase2<RtpiDashboardActivity>{
 	
 	private RtpiDashboardActivity activity;
 	private ImageView dublinBusImageView;
@@ -25,7 +25,7 @@ public class RtpiDashboardActivityTest extends ActivityInstrumentationTestCase2<
 	private WebView twitterFeed;
 	private WebView chartVis;
 	
-	public RtpiDashboardActivityTest(){
+	public RtpiDashboardUIElements(){
 		super(RtpiDashboardActivity.class);
 	}
 	

@@ -3,11 +3,10 @@ package com.example.dublintravel.test.ui_elements;
 import com.example.dublintravel.HomepageActivity;
 import com.example.dublintravel.R;
 import android.test.ActivityInstrumentationTestCase2;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class HomepageActivityTest extends ActivityInstrumentationTestCase2<HomepageActivity>{
+public class HomepageUIElements extends ActivityInstrumentationTestCase2<HomepageActivity>{
 	
 	private HomepageActivity activity;
 	private TextView appNameTextView;
@@ -20,7 +19,7 @@ public class HomepageActivityTest extends ActivityInstrumentationTestCase2<Homep
 	private ImageView userManualButton;
 	private Helper helper; 
 	
-	public HomepageActivityTest() {
+	public HomepageUIElements() {
 		super(HomepageActivity.class);
 	}
 	

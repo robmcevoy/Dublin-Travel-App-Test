@@ -8,7 +8,7 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class LiveMapActivityTest extends ActivityInstrumentationTestCase2<LiveMapActivity>{
+public class LiveMapUIElements extends ActivityInstrumentationTestCase2<LiveMapActivity>{
 	
 	private LiveMapActivity activity;
 	private Helper helper;
@@ -40,7 +40,7 @@ public class LiveMapActivityTest extends ActivityInstrumentationTestCase2<LiveMa
 	private TextView busEireannCycling;
 	private TextView irishRailCycling;
 	
-	public LiveMapActivityTest(){
+	public LiveMapUIElements(){
 		super(LiveMapActivity.class);
 	}
 	
