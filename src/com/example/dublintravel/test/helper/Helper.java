@@ -1,28 +1,35 @@
-package com.example.dublintravel.test.activity_navigation;
+package com.example.dublintravel.test.helper;
 
+
+import com.example.dublintravel.BundleKeys;
+import com.example.dublintravel.BusEireannOperator;
+import com.example.dublintravel.DublinBusOperator;
+import com.example.dublintravel.IrishRailOperator;
 import com.example.dublintravel.LiveMapActivity;
+import com.example.dublintravel.LuasOperator;
+import com.example.dublintravel.Operator;
 import com.example.dublintravel.R;
 import com.example.dublintravel.RtpiDashboardActivity;
+import com.example.dublintravel.Stop;
 import com.example.dublintravel.UserManualActivity;
-
 import junit.framework.TestCase;
 import android.app.Activity;
 import android.app.Instrumentation.ActivityMonitor;
+import android.content.res.Configuration;
+import android.os.Bundle;
 import android.test.ActivityTestCase;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Helper extends TestCase {
 	
 	private int MAX_WAIT_TIME = 5000;
+	private int CLICK_SLEEP = 100;
 	
-	private void testButtonClickActivityLaunch(ActivityTestCase instrument, Activity current, String expectedName, final View view){
+	private void testButtonClickActivityLaunch(ActivityTestCase instrument, Activity current, String expectedName, View view){
 		ActivityMonitor activityMonitor = instrument.getInstrumentation().addMonitor(expectedName, null, false);
-		current.runOnUiThread(new Runnable() {
-		    public void run() {
-		    	view.performClick();
-		    }
-		  });
+		clickButton(view, current);
 		Activity launchedActivity = instrument.getInstrumentation().waitForMonitorWithTimeout(activityMonitor, MAX_WAIT_TIME);
 		assertNotNull(launchedActivity);
 		instrument.getInstrumentation().removeMonitor(activityMonitor);
@@ -63,6 +70,70 @@ public class Helper extends TestCase {
 		String expected = UserManualActivity.class.getName();
 		final ImageView userManualBtn = (ImageView) activity .findViewById(R.id.userManual);
 		testButtonClickActivityLaunch(instrument, activity, expected, userManualBtn);
+	}
+	
+	public void testNavigationBar(ImageView dublinBusImageView, ImageView irishRailImageView,
+		ImageView luasImageView, ImageView busEireannImageView, ImageView liveMapView){
+		testVisibility(dublinBusImageView);
+		testVisibility(luasImageView);
+		testVisibility(busEireannImageView);
+		testVisibility(irishRailImageView);
+		testVisibility(liveMapView);
+		testButton(dublinBusImageView);
+		testButton(luasImageView);
+		testButton(busEireannImageView);
+		testButton(irishRailImageView);
+		testButton(liveMapView);
+	}
+
+	public void testTextView(final TextView textView, final String expected){
+		final String actual = textView.getText().toString();
+		assertEquals(expected, actual);
+		testVisibility(textView);
+	}
+
+	public void testVisibility(View view){
+		assertTrue(View.VISIBLE == view.getVisibility());
+	}
+
+	public void testButton(View view){
+		assertTrue(view.isClickable());
+		testVisibility(view);
+	}
+	
+	public void clickButton(final View view, Activity current){
+		current.runOnUiThread(new Runnable() {
+		    public void run() {
+		    	view.performClick();
+		    }
+		  });
+		try {
+			Thread.sleep(CLICK_SLEEP);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public Bundle createBundle(){
+		Operator[] operators = new Operator[4];
+		DublinBusOperator dbOp = new DublinBusOperator();
+		operators[dbOp.getIndex()] = dbOp;
+		IrishRailOperator irOp = new IrishRailOperator();
+		irOp.activate();
+		operators[irOp.getIndex()] = irOp;
+		BusEireannOperator beOp = new BusEireannOperator();
+		operators[beOp.getIndex()] = beOp;
+		LuasOperator luOp = new LuasOperator();
+		operators[luOp.getIndex()] = luOp;
+		Bundle bundle = new Bundle();  
+    	bundle.putSerializable(BundleKeys.getOperatorsKey(), operators);
+    	return bundle;
+	}
+	
+	public boolean isLargeScreen(Activity activity){
+		return (activity.getResources().getConfiguration().screenLayout & 
+			    Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE;
 	}
 
 }

@@ -1,15 +1,16 @@
-package com.example.dublintravel.test.activity_navigation;
+package com.example.dublintravel.test.live_map_dashboard;
 
 import com.example.dublintravel.LiveMapActivity;
+import com.example.dublintravel.test.helper.Helper;
 import android.app.Activity;
 import android.test.ActivityInstrumentationTestCase2;
 
-public class LiveMapActivityTest extends ActivityInstrumentationTestCase2<LiveMapActivity>{
+public class ActivityChange extends ActivityInstrumentationTestCase2<LiveMapActivity>{
 
 	private Activity activity;
 	private Helper helper;
 	
-	public LiveMapActivityTest(){
+	public ActivityChange(){
 		super(LiveMapActivity.class);
 	}
 	

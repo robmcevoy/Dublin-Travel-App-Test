@@ -1,15 +1,16 @@
-package com.example.dublintravel.test.activity_navigation;
+package com.example.dublintravel.test.homepage;
 
 import android.app.Activity;
 import android.test.ActivityInstrumentationTestCase2;
 import com.example.dublintravel.HomepageActivity;
+import com.example.dublintravel.test.helper.Helper;
 
-public class HomeapageActivityTest extends ActivityInstrumentationTestCase2<HomepageActivity>{
+public class ActivityChange extends ActivityInstrumentationTestCase2<HomepageActivity>{
 	
 	private Activity activity;
 	private Helper helper;
 
-	public HomeapageActivityTest(){
+	public ActivityChange(){
 		super(HomepageActivity.class);
 	}
 	
