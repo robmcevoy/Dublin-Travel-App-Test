@@ -1,18 +1,18 @@
-package com.example.dublintravel.test.live_map_dashboard;
+package com.example.dublintravel.test.MapDashboard;
 
 import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.UiThreadTest;
-import com.example.dublintravel.LiveMapActivity;
+import com.example.dublintravel.MapDashboardActivity;
 import com.example.dublintravel.R;
 import com.google.android.gms.maps.MapFragment;
 
-public class Map extends ActivityInstrumentationTestCase2<LiveMapActivity>{
+public class Map extends ActivityInstrumentationTestCase2<MapDashboardActivity>{
 
-	private LiveMapActivity activity;
+	private MapDashboardActivity activity;
 	
 	public Map(){
-		super(LiveMapActivity.class);
+		super(MapDashboardActivity.class);
 	}
 	
 	protected void setUp() throws Exception {

@@ -1,17 +1,16 @@
 package com.example.dublintravel.test.helper;
 
 
-import com.example.dublintravel.BundleKeys;
 import com.example.dublintravel.BusEireannOperator;
 import com.example.dublintravel.DublinBusOperator;
 import com.example.dublintravel.IrishRailOperator;
-import com.example.dublintravel.LiveMapActivity;
+import com.example.dublintravel.MapDashboardActivity;
 import com.example.dublintravel.LuasOperator;
+import com.example.dublintravel.NavigationBar;
 import com.example.dublintravel.Operator;
 import com.example.dublintravel.R;
-import com.example.dublintravel.RtpiDashboardActivity;
+import com.example.dublintravel.PTDActivity;
 import com.example.dublintravel.Stop;
-import com.example.dublintravel.UserManualActivity;
 import junit.framework.TestCase;
 import android.app.Activity;
 import android.app.Instrumentation.ActivityMonitor;
@@ -37,39 +36,33 @@ public class Helper extends TestCase {
 	}
 	
 	public void testLuasButtonClick(Activity activity, ActivityTestCase instrument){
-		String expected = RtpiDashboardActivity.class.getName();
+		String expected = PTDActivity.class.getName();
 		final ImageView luasBtn = (ImageView) activity .findViewById(R.id.luasLogo);
 		testButtonClickActivityLaunch(instrument, activity, expected, luasBtn);
 	}
 	
 	public void testDublinBusButtonClick(Activity activity, ActivityTestCase instrument){
-		String expected = RtpiDashboardActivity.class.getName();
+		String expected = PTDActivity.class.getName();
 		final ImageView dublinBusBtn = (ImageView) activity .findViewById(R.id.dublinBusLogo);
 		testButtonClickActivityLaunch(instrument, activity, expected, dublinBusBtn);
 	}
 	
 	public void testIrishRailButtonClick(Activity activity, ActivityTestCase instrument){
-		String expected = RtpiDashboardActivity.class.getName();
+		String expected = PTDActivity.class.getName();
 		final ImageView irishRailBtn = (ImageView) activity .findViewById(R.id.irishRailLogo);
 		testButtonClickActivityLaunch(instrument, activity, expected, irishRailBtn);
 	}
 	
 	public void testBusEireannButtonClick(Activity activity, ActivityTestCase instrument){
-		String expected = RtpiDashboardActivity.class.getName();
+		String expected = PTDActivity.class.getName();
 		final ImageView busEireannBtn = (ImageView) activity .findViewById(R.id.busEireannLogo);
 		testButtonClickActivityLaunch(instrument, activity, expected, busEireannBtn);
 	}
 	
 	public void testLiveMapButtonClick(Activity activity, ActivityTestCase instrument){
-		String expected = LiveMapActivity.class.getName();
+		String expected = MapDashboardActivity.class.getName();
 		final ImageView busEireannBtn = (ImageView) activity .findViewById(R.id.liveMapLogo);
 		testButtonClickActivityLaunch(instrument, activity, expected, busEireannBtn);
-	}
-	
-	public void testUserManualBtnClick(Activity activity, ActivityTestCase instrument){
-		String expected = UserManualActivity.class.getName();
-		final ImageView userManualBtn = (ImageView) activity .findViewById(R.id.userManual);
-		testButtonClickActivityLaunch(instrument, activity, expected, userManualBtn);
 	}
 	
 	public void testNavigationBar(ImageView dublinBusImageView, ImageView irishRailImageView,
@@ -127,7 +120,7 @@ public class Helper extends TestCase {
 		LuasOperator luOp = new LuasOperator();
 		operators[luOp.getIndex()] = luOp;
 		Bundle bundle = new Bundle();  
-    	bundle.putSerializable(BundleKeys.getOperatorsKey(), operators);
+    	bundle.putSerializable(NavigationBar.getOperatorsKey(), operators);
     	return bundle;
 	}
 	

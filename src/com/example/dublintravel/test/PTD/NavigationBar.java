@@ -1,16 +1,16 @@
-package com.example.dublintravel.test.rtpi_dashboard;
+package com.example.dublintravel.test.PTD;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.ImageView;
 import com.example.dublintravel.R;
-import com.example.dublintravel.RtpiDashboardActivity;
+import com.example.dublintravel.PTDActivity;
 import com.example.dublintravel.test.helper.Helper;
 
-public class NavigationBar extends ActivityInstrumentationTestCase2<RtpiDashboardActivity>{
+public class NavigationBar extends ActivityInstrumentationTestCase2<PTDActivity>{
 	
-	private RtpiDashboardActivity activity;
+	private PTDActivity activity;
 	private ImageView irishRail;
 	private ImageView dublinBus;
 	private ImageView busEireann;
@@ -19,13 +19,13 @@ public class NavigationBar extends ActivityInstrumentationTestCase2<RtpiDashboar
 	private Helper helper;
 	
 	public NavigationBar(){
-		super(RtpiDashboardActivity.class);
+		super(PTDActivity.class);
 	}
 	
 	protected void setUp() throws Exception {
 		super.setUp();
 		helper = new Helper();
-		Intent intent = new Intent(getInstrumentation().getTargetContext(), RtpiDashboardActivity.class);
+		Intent intent = new Intent(getInstrumentation().getTargetContext(), PTDActivity.class);
 		intent.putExtras(helper.createBundle());
 		setActivityIntent(intent);
 		activity = getActivity();

@@ -1,17 +1,17 @@
-package com.example.dublintravel.test.live_map_dashboard;
+package com.example.dublintravel.test.MapDashboard;
 
-import com.example.dublintravel.LiveMapActivity;
+import com.example.dublintravel.MapDashboardActivity;
 import com.example.dublintravel.test.helper.Helper;
 import android.app.Activity;
 import android.test.ActivityInstrumentationTestCase2;
 
-public class ActivityChange extends ActivityInstrumentationTestCase2<LiveMapActivity>{
+public class ActivityChange extends ActivityInstrumentationTestCase2<MapDashboardActivity>{
 
 	private Activity activity;
 	private Helper helper;
 	
 	public ActivityChange(){
-		super(LiveMapActivity.class);
+		super(MapDashboardActivity.class);
 	}
 	
 	protected void setUp() throws Exception {

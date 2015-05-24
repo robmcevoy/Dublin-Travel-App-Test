@@ -1,4 +1,4 @@
-package com.example.dublintravel.test.rtpi_dashboard;
+package com.example.dublintravel.test.PTD;
 
 import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
@@ -6,28 +6,28 @@ import android.util.Log;
 import android.webkit.WebView;
 import com.example.dublintravel.ChartWebView;
 import com.example.dublintravel.R;
-import com.example.dublintravel.RtpiController;
-import com.example.dublintravel.RtpiDashboardActivity;
+import com.example.dublintravel.PTDController;
+import com.example.dublintravel.PTDActivity;
 import com.example.dublintravel.test.helper.Helper;
 import com.robotium.solo.Solo;
 import org.json.JSONObject;
 
-public class ChartVis extends ActivityInstrumentationTestCase2<RtpiDashboardActivity>{
+public class ChartVis extends ActivityInstrumentationTestCase2<PTDActivity>{
 	
-	private RtpiDashboardActivity activity;
+	private PTDActivity activity;
 	private Helper helper;
 	private Solo solo;
 	private final int MAX_LOAD_TIME = 5000;
 	private String TEST_STOP="Connolly";
 	
 	public ChartVis(){
-		super(RtpiDashboardActivity.class);
+		super(PTDActivity.class);
 	}
 	
 	protected void setUp() throws Exception {
 		super.setUp();
 		helper = new Helper();
-		Intent intent = new Intent(getInstrumentation().getTargetContext(), RtpiDashboardActivity.class);
+		Intent intent = new Intent(getInstrumentation().getTargetContext(), PTDActivity.class);
 		intent.putExtras(helper.createBundle());
 		setActivityIntent(intent);
 		activity = getActivity();

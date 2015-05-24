@@ -1,15 +1,15 @@
-package com.example.dublintravel.test.rtpi_dashboard;
+package com.example.dublintravel.test.PTD;
 
 import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
-import com.example.dublintravel.RtpiDashboardActivity;
+import com.example.dublintravel.PTDActivity;
 import com.example.dublintravel.R;
 import com.example.dublintravel.test.helper.Helper;
 import com.robotium.solo.Solo;
 
-public class ChooseStopDialog extends ActivityInstrumentationTestCase2<RtpiDashboardActivity>{
+public class ChooseStopDialog extends ActivityInstrumentationTestCase2<PTDActivity>{
 	
-	private RtpiDashboardActivity activity;
+	private PTDActivity activity;
 	private Helper helper;
 	private Solo solo;
 	private final String FAVOURITE_STOP = "Adamstown";
@@ -17,13 +17,13 @@ public class ChooseStopDialog extends ActivityInstrumentationTestCase2<RtpiDashb
 	private final String SELECT_STOP = "Bayside";
 	
 	public ChooseStopDialog(){
-		super(RtpiDashboardActivity.class);
+		super(PTDActivity.class);
 	}
 	
 	protected void setUp() throws Exception {
 		super.setUp();
 		helper = new Helper();
-		Intent intent = new Intent(getInstrumentation().getTargetContext(), RtpiDashboardActivity.class);
+		Intent intent = new Intent(getInstrumentation().getTargetContext(), PTDActivity.class);
 		intent.putExtras(helper.createBundle());
 		setActivityIntent(intent);
 		activity = getActivity();

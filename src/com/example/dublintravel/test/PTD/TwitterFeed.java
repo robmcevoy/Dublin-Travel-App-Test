@@ -1,4 +1,4 @@
-package com.example.dublintravel.test.rtpi_dashboard;
+package com.example.dublintravel.test.PTD;
 
 import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
@@ -6,26 +6,26 @@ import com.example.dublintravel.BusEireannOperator;
 import com.example.dublintravel.DublinBusOperator;
 import com.example.dublintravel.IrishRailOperator;
 import com.example.dublintravel.LuasOperator;
-import com.example.dublintravel.RtpiDashboardActivity;
+import com.example.dublintravel.PTDActivity;
 import com.example.dublintravel.test.helper.Helper;
 import com.robotium.solo.Solo;
 import com.robotium.solo.WebElement;
 
-public class TwitterFeed extends ActivityInstrumentationTestCase2<RtpiDashboardActivity>{
+public class TwitterFeed extends ActivityInstrumentationTestCase2<PTDActivity>{
 	
-	private RtpiDashboardActivity activity;
+	private PTDActivity activity;
 	private Helper helper;
 	private Solo solo;
 	private final int MAX_LOAD_TIME = 5000;
 	
 	public TwitterFeed(){
-		super(RtpiDashboardActivity.class);
+		super(PTDActivity.class);
 	}
 	
 	protected void setUp() throws Exception {
 		super.setUp();
 		helper = new Helper();
-		Intent intent = new Intent(getInstrumentation().getTargetContext(), RtpiDashboardActivity.class);
+		Intent intent = new Intent(getInstrumentation().getTargetContext(), PTDActivity.class);
 		intent.putExtras(helper.createBundle());
 		setActivityIntent(intent);
 		activity = getActivity();

@@ -1,4 +1,4 @@
-package com.example.dublintravel.test.homepage;
+package com.example.dublintravel.test.Homepage;
 
 import android.app.Activity;
 import android.test.ActivityInstrumentationTestCase2;
@@ -17,11 +17,6 @@ public class ActivityChange extends ActivityInstrumentationTestCase2<HomepageAct
 	protected void setUp() throws Exception {
 		super.setUp();
 		helper = new Helper();
-	}
-
-	public void testUserManualClick(){
-		activity = getActivity();
-		helper.testUserManualBtnClick(activity, this);
 	}
 	
 	public void testDublinBusClick(){
