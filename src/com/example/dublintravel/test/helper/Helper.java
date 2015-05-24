@@ -10,7 +10,6 @@ import com.example.dublintravel.NavigationBar;
 import com.example.dublintravel.Operator;
 import com.example.dublintravel.R;
 import com.example.dublintravel.PTDActivity;
-import com.example.dublintravel.Stop;
 import junit.framework.TestCase;
 import android.app.Activity;
 import android.app.Instrumentation.ActivityMonitor;

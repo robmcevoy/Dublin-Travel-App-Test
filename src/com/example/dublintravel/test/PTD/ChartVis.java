@@ -2,22 +2,17 @@ package com.example.dublintravel.test.PTD;
 
 import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
-import android.util.Log;
 import android.webkit.WebView;
-import com.example.dublintravel.ChartWebView;
 import com.example.dublintravel.R;
-import com.example.dublintravel.PTDController;
 import com.example.dublintravel.PTDActivity;
 import com.example.dublintravel.test.helper.Helper;
 import com.robotium.solo.Solo;
-import org.json.JSONObject;
 
 public class ChartVis extends ActivityInstrumentationTestCase2<PTDActivity>{
 	
 	private PTDActivity activity;
 	private Helper helper;
 	private Solo solo;
-	private final int MAX_LOAD_TIME = 5000;
 	private String TEST_STOP="Connolly";
 	
 	public ChartVis(){
@@ -36,7 +31,6 @@ public class ChartVis extends ActivityInstrumentationTestCase2<PTDActivity>{
 	
 	public void testChart(){
 		// pick stop
-		/*
 		solo.clickOnText(activity.getString(R.string.stop_id_hint));
 		solo.waitForDialogToOpen();
 		solo.clickOnText(TEST_STOP);
@@ -45,12 +39,9 @@ public class ChartVis extends ActivityInstrumentationTestCase2<PTDActivity>{
 		if (!helper.isLargeScreen(activity)) {
 			solo.scrollToSide(Solo.RIGHT);
 		}
-		assertTrue(solo.waitForLogMessage("chart ready"));
-		RtpiController controller = activity.getController();
-		ChartWebView chartWebView = controller.getChartWebView();
-		JSONObject testData = chartWebView.getTestData();
-		Log.d("CHART_LOG", testData.toString());
-		*/
+		// is chart visible?
+		WebView chart = (WebView) activity.findViewById(R.id.webView1);
+		assertTrue(chart.isShown());
 	}
 
 }
