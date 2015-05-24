@@ -26,7 +26,7 @@ public class Helper extends TestCase {
 	private int MAX_WAIT_TIME = 5000;
 	private int CLICK_SLEEP = 100;
 	
-	private void testButtonClickActivityLaunch(ActivityTestCase instrument, Activity current, String expectedName, View view){
+	public void testButtonClickActivityLaunch(ActivityTestCase instrument, Activity current, String expectedName, View view){
 		ActivityMonitor activityMonitor = instrument.getInstrumentation().addMonitor(expectedName, null, false);
 		clickButton(view, current);
 		Activity launchedActivity = instrument.getInstrumentation().waitForMonitorWithTimeout(activityMonitor, MAX_WAIT_TIME);

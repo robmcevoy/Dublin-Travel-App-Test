@@ -2,13 +2,17 @@ package com.example.dublintravel.test.Homepage;
 
 import android.app.Activity;
 import android.test.ActivityInstrumentationTestCase2;
+import android.widget.ImageView;
+
 import com.example.dublintravel.HomepageActivity;
+import com.example.dublintravel.R;
 import com.example.dublintravel.test.helper.Helper;
 
 public class ActivityChange extends ActivityInstrumentationTestCase2<HomepageActivity>{
 	
 	private Activity activity;
 	private Helper helper;
+	private static final String USER_MANUAL_FILE= "https://drive.google.com/file/d/0B9Dvsu3ZVoTWZ0xBeTktcEdLSmM/view?usp=sharing";
 
 	public ActivityChange(){
 		super(HomepageActivity.class);
@@ -42,6 +46,12 @@ public class ActivityChange extends ActivityInstrumentationTestCase2<HomepageAct
 	public void liveMapClick(){
 		activity = getActivity();
 		helper.testLiveMapButtonClick(activity, this);
+	}
+	
+	public void userManualClick(){
+		final ImageView userManualButton = (ImageView) activity.findViewById(R.id.userManual);
+		activity = getActivity();
+		helper.testButtonClickActivityLaunch(this, activity, USER_MANUAL_FILE, userManualButton);
 	}
 
 }
