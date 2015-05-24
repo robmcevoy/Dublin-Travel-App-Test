@@ -1,6 +1,5 @@
 package com.example.dublintravel.test.MapDashboard;
 
-import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.UiThreadTest;
 import com.example.dublintravel.MapDashboardActivity;

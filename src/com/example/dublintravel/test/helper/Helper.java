@@ -10,6 +10,8 @@ import com.example.dublintravel.NavigationBar;
 import com.example.dublintravel.Operator;
 import com.example.dublintravel.R;
 import com.example.dublintravel.PTDActivity;
+import com.example.dublintravel.Stop;
+
 import junit.framework.TestCase;
 import android.app.Activity;
 import android.app.Instrumentation.ActivityMonitor;
@@ -110,6 +112,8 @@ public class Helper extends TestCase {
 	public Bundle createBundle(){
 		Operator[] operators = new Operator[4];
 		DublinBusOperator dbOp = new DublinBusOperator();
+		Stop stop = new Stop("1686", "Test Stop");
+		dbOp.setPreviousStop(stop);
 		operators[dbOp.getIndex()] = dbOp;
 		IrishRailOperator irOp = new IrishRailOperator();
 		irOp.activate();
